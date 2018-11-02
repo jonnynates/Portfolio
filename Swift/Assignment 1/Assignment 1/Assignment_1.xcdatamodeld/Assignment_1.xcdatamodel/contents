@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13241" systemVersion="17B48" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Multi" representedClassName="Multi" syncable="YES">
+        <attribute name="answer" optional="YES" attributeType="Integer 16" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="question" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="questionLink" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="QuestionCore" inverseName="multi" inverseEntity="QuestionCore" syncable="YES"/>
+    </entity>
+    <entity name="Numeric" representedClassName="Numeric" syncable="YES">
+        <attribute name="value" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="questionlink" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="QuestionCore" inverseName="numeric" inverseEntity="QuestionCore" syncable="YES"/>
+    </entity>
+    <entity name="QuestionCore" representedClassName="QuestionCore" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="multi" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Multi" inverseName="questionLink" inverseEntity="Multi" syncable="YES"/>
+        <relationship name="numeric" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Numeric" inverseName="questionlink" inverseEntity="Numeric" syncable="YES"/>
+        <relationship name="single" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Single" inverseName="questionlink" inverseEntity="Single" syncable="YES"/>
+        <relationship name="text" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Text" inverseName="questionlink" inverseEntity="Text" syncable="YES"/>
+    </entity>
+    <entity name="Single" representedClassName="Single" syncable="YES">
+        <attribute name="answer" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="question" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="questionlink" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="QuestionCore" inverseName="single" inverseEntity="QuestionCore" syncable="YES"/>
+    </entity>
+    <entity name="Text" representedClassName="Text" syncable="YES">
+        <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="questionlink" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="QuestionCore" inverseName="text" inverseEntity="QuestionCore" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Multi" positionX="-999" positionY="-13" width="128" height="88"/>
+        <element name="Numeric" positionX="-173" positionY="45" width="128" height="73"/>
+        <element name="QuestionCore" positionX="-594" positionY="48" width="128" height="118"/>
+        <element name="Single" positionX="-558" positionY="-187" width="128" height="90"/>
+        <element name="Text" positionX="-596" positionY="360" width="128" height="73"/>
+    </elements>
+</model>
